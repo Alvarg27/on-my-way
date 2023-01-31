@@ -64,7 +64,12 @@ const Header = () => {
               <LanguageSelector />
             </div>
           )}
-          {width <= 1024 && <MenuIcon />}
+          {width <= 1024 && (
+            <div className="flex items-center text-white">
+              <LanguageSelector className="mr-6 !h-[35px]" />
+              <MenuIcon />
+            </div>
+          )}
         </div>
       </div>
     </div>

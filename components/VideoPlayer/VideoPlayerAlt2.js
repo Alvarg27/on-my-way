@@ -4,6 +4,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { IoPlay, IoVolumeHigh, IoVolumeMute } from "react-icons/io5";
 
 const VideoPlayerAlt2 = ({ className, file, thumbnail }) => {
+  const hideControllers = true;
   const isTouch = window.matchMedia("(pointer: coarse)").matches;
   const { width } = useWindowDimensions();
   const [isHovered, setIsHovered] = useState(false);
@@ -71,33 +72,35 @@ const VideoPlayerAlt2 = ({ className, file, thumbnail }) => {
 
   return (
     <>
-      <div
-        ref={controlBarRef}
-        className="absolute bottom-4 right-4  z-[3]  flex  items-center"
-      >
+      {!hideControllers && (
         <div
-          onClick={() => {
-            if (videoRef?.current?.muted) {
-              videoRef.current.muted = false;
-            } else {
-              videoRef.current.muted = true;
-            }
-          }}
-          className="text-white text-2xl hover:bg-black hover:bg-opacity-10 hover:backdrop-blur-md transition duration-300  cursor-pointer flex items-center justify-center  w-[40px] h-[40px] rounded-lg mr-4"
+          ref={controlBarRef}
+          className="absolute bottom-4 right-4  z-[3]  flex  items-center"
         >
-          {!videoRef?.current?.muted ? <IoVolumeHigh /> : <IoVolumeMute />}
+          <div
+            onClick={() => {
+              if (videoRef?.current?.muted) {
+                videoRef.current.muted = false;
+              } else {
+                videoRef.current.muted = true;
+              }
+            }}
+            className="text-white text-2xl hover:bg-black hover:bg-opacity-10 hover:backdrop-blur-md transition duration-300  cursor-pointer flex items-center justify-center  w-[40px] h-[40px] rounded-lg mr-4"
+          >
+            {!videoRef?.current?.muted ? <IoVolumeHigh /> : <IoVolumeMute />}
+          </div>
+          <div className="bg-white bg-opacity-70 backdrop-blur-lg   text-sm w-[70px] flex justify-center rounded-lg h-[40px] items-center">
+            <p className="text-blue-500">
+              -
+              {new Date(
+                duration - videoRef?.current?.currentTime * 1000 || duration
+              )
+                .toISOString()
+                .substring(14, 19)}
+            </p>
+          </div>
         </div>
-        <div className="bg-white bg-opacity-70 backdrop-blur-lg   text-sm w-[70px] flex justify-center rounded-lg h-[40px] items-center">
-          <p className="text-blue-500">
-            -
-            {new Date(
-              duration - videoRef?.current?.currentTime * 1000 || duration
-            )
-              .toISOString()
-              .substring(14, 19)}
-          </p>
-        </div>
-      </div>
+      )}
 
       <div
         onClick={(e) => {

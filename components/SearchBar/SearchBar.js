@@ -23,8 +23,8 @@ const options = [
 
 const text = {
   search: [
-    { language: "es", content: "Redondo" },
-    { language: "en", content: "Rounded" },
+    { language: "es", content: "Buscar" },
+    { language: "en", content: "Search" },
   ],
   destination: [
     { language: "es", content: "¿A dónde vas?" },

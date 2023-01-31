@@ -15,7 +15,7 @@ export default function Home() {
     <>
       <div style={{ height }} className="h-screen">
         <div className="absolute w-full h-full z-[2] bg-gradient-to-t from-[rgba(0,0,0,0.3)] via-[rgba(0,0,0,0.3)] flex items-center justify-center flex-col">
-          <p className="text-5xl mb-16 text-white font-semibold text-center">
+          <p className="text-5xl mb-16 text-white font-semibold text-center px-4">
             {translate(text.hero)}
           </p>
           <SearchBar />

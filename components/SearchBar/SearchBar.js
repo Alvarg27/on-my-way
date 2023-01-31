@@ -74,7 +74,7 @@ const SearchBar = () => {
       </div>
 
       <div className="flex w-full mt-2 lg:hidden md:hidden">
-        <div className="relative w-[150px] mr-2">
+        <div className="relative w-[200px] mr-2">
           <RiTaxiFill className="absolute top-1/2 -translate-y-1/2 left-2 text-2xl text-gray-400" />
           <FaChevronDown className="absolute top-1/2 -translate-y-1/2 right-2 text-sm text-primary" />
           <select className="w-full flex-flex-1 text-gray-500  bg-white rounded-lg pl-10 pr-2 h-[50px]">
@@ -83,7 +83,7 @@ const SearchBar = () => {
             ))}
           </select>
         </div>
-        <div className="relative w-[150px]">
+        <div className="relative w-[200px]">
           <RiCalendarEventFill className="absolute top-1/2 -translate-y-1/2 left-2 text-2xl text-gray-400" />
           <input
             onChange={(e) => setSelectedDate(e.target.value)}
